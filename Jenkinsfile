@@ -1,23 +1,12 @@
-pipeline {
-    agent {
-
-            label 'built-in'
+pipeline{
+    agent{
+        label 'built-in'
         customWorkspace "/mnt/project"
     }
-
-    stages {
-        stage ('git')
-        {
-            steps{
-                sh 'yum install git -y'
-    
-            }
-        }
-          
+    stages{
         stage ('Compile Stage') {
 
             steps {
-                
                     sh 'mvn clean install'
                 }
             
