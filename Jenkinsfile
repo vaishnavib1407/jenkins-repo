@@ -6,17 +6,14 @@ pipeline {
     }
 
     stages {
-        stage (clean){
-            steps{
-                sh 'rm -rf /mnt/project'
-            }
-        }
-        stage ('git-installation')
+        stage ('git')
         {
             steps{
                 sh 'yum install git -y'
+    
             }
         }
+          
         stage ('Compile Stage') {
 
             steps {
