@@ -9,7 +9,7 @@ pipeline{
         stage ('Compile Stage') {
 
             steps {
-                    sh 'mvn clean install'
+                    sh 'mvn clean package'
                }    
         }
         stage ('Echo Branch') {
