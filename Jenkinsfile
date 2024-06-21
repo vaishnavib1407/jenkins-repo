@@ -1,36 +1,31 @@
 pipeline {
     agent {
 
-            label 'slave-1'
+            label 'built-in'
+        customWorkspace "/mnt/project"
     }
 
     stages {
+        stage (clean){
+            steps{
+                sh 'rm -rf /mnt/project'
+            }
+        }
+        stage ('git-installation')
+        {
+            steps{
+                sh 'yum install git -y'
+            }
+        }
         stage ('Compile Stage') {
 
             steps {
                 
-                    sh 'mvn clean compile'
+                    sh 'mvn clean install'
                 }
             
         }
 
-        stage ('Testing Stage') {
-
-            steps {
-                
-                    sh 'mvn test'
-                }
-            
-        }
-
-
-        stage ('Install Stage') {
-            steps {
-                
-                    sh 'mvn install'
-                }
-            
-        }
         
         stage ('Echo Branch') {
 
