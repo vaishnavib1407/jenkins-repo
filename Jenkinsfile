@@ -5,6 +5,9 @@ pipeline{
         customWorkspace "/mnt/project"
         }
     }
+    tools{
+        maven "maven"
+    }
     stages{
         stage ('Compile Stage') {
 
@@ -22,3 +25,4 @@ pipeline{
         }
     }
 }
+
