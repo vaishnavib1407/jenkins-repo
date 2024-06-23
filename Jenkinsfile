@@ -6,6 +6,9 @@ pipeline {
     }
     }
     stages {
+        stage{
+            sh 'sudo yum install git -y'
+        }
         stage ('Maven') {
             steps {
                 //sh 'sudo chmod -R 777 /root/server'
